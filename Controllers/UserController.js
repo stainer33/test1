@@ -112,9 +112,16 @@ function Login(req, res, next)
      }
   
 }
- 
+ //delete
+ function Delete(req, res, next)
+{
+    console.log(req.body.id);
+    res.send(req.body.id);
+    
+}
+
 
 
 
 //exporting functions
-module.exports={validation, CheckIfExist, Hashing, Registration,Login};
+module.exports={validation, CheckIfExist, Hashing, Registration,Login,Delete};

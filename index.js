@@ -9,6 +9,7 @@ app.use(BodyParser.urlencoded({extended: true}));
 
 app.post('/registration', UserController.validation, UserController.Hashing,UserController.CheckIfExist,UserController.Registration);
 app.post('/login',UserController.Login,AuthController.jwtTokenGen);
+app.delete('/delete',AuthController.VerifyToken,UserController.Delete);
 app.listen(3000);
 
 
