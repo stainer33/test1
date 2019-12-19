@@ -4,6 +4,7 @@
   "description": "node assignment",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,20 @@
   "bugs": {
     "url": "https://github.com/softwarica-github/login-register-and-delete-apis-and-corresponding-swagger-doc-stainer33/issues"
   },
-  "homepage": "https://github.com/softwarica-github/login-register-and-delete-apis-and-corresponding-swagger-doc-stainer33#readme"
+  "homepage": "https://github.com/softwarica-github/login-register-and-delete-apis-and-corresponding-swagger-doc-stainer33#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mariadb": "^2.1.4",
+    "mysql2": "^2.0.2",
+    "pg": "^7.15.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.3",
+    "sqlite3": "^4.1.1",
+    "swagger-jsdoc": "^3.5.0",
+    "swagger-ui-express": "^4.1.2",
+    "tedious": "^6.6.2"
+  }
 }
