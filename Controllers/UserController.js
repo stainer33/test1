@@ -68,10 +68,53 @@ function Registration(req, res, next)
         res.json({ status: 409, message: 'Registration failed' });
     })
 }
+//login 
+function Login(req, res, next)
+{//select query
+  //  console.log(users);
+  if(req.body.username == '' ||req.body.password == '')
+  {
+    res.json({ status: 400, message: 'Enter username or password!' });
+      console.log('unsucccess');
+  } 
+  else{ 
 
+      console.log('validation success');
+      var saltRounds=10;
+    bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+        if(hash)
+        {
+            users.findOne({
+                where:{UserName: req.body.username,Password:hash} })
+            .then(function(result)
+            {
+                if(result===null)
+                {
+                    console.log('Login successful');
+                    res.json({status: 201, message: "Login successful"});
+                    next();
+                    
+                }
+                else
+                {
+                    console.log("Login unsuccessful");
+                    res.json({status: 404, message: "Invalid login"});   
+                }
+            })
+             
+             
+        }
+        else
+        { console.log('failed');}
+       
+      });
+   
+     }
+  
+}
  
 
 
 
 //exporting functions
-module.exports={validation, CheckIfExist, Hashing, Registration};
+module.exports={validation, CheckIfExist, Hashing, Registration,Login};
