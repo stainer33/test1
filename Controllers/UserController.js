@@ -115,9 +115,25 @@ function Login(req, res, next)
  //delete
  function Delete(req, res, next)
 {
-    console.log(req.body.id);
-    res.send(req.body.id);
-    
+    console.log(req.params.id);
+    if (req.body.id === null || req.body.id === undefined) {
+        res.json({ status: 404, message: 'User not found' })
+    }
+    users.destroy({
+      where:{ UserName: req.body.id}
+        
+    })
+    .then(function (result)
+    {
+           
+            res.json({ status: 201, message: 'User deleted successfully' });
+        
+    })
+    .catch(function(err){
+        console.log(err);
+        
+        res.json({ status: 500, message: 'could not delete' });
+    })
 }
 
 
