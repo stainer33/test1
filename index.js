@@ -1,6 +1,7 @@
 var express = require ('express');
 var app = express();
-var dbConfig= require('./DatabaseConfig');
+var UserModel = require('./Models/UserModel'); 
+
 
 app.listen(3000);
 
